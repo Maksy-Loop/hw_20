@@ -47,14 +47,19 @@ class TestGenreService:
         assert genre.id != None
 
     def test_delete(self):
-        self.genre_service.delete(1)
+        ret = self.genre_service.delete(1)
+
+        assert ret == None
+
+
 
     def test_update(self):
         genre_d = {
             "id": 3,
             "name": "Какое-то кино"
         }
-        self.genre_service.update(genre_d)
+        genre = self.genre_service.update(genre_d)
+        assert genre.id != None
 
     def test_partially_update(self):
         genre_d = {
@@ -62,6 +67,8 @@ class TestGenreService:
             "name": "Какое-то кино"
         }
 
-        self.genre_service.update(genre_d)
+        genre = self.genre_service.update(genre_d)
+
+        assert genre.id != None
 
 

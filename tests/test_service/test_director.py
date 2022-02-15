@@ -47,14 +47,19 @@ class TestDirectorService:
         assert director.id != None
 
     def test_delete(self):
-        self.director_service.delete(1)
+        ret = self.director_service.delete(1)
+        assert ret == None
+
+
 
     def test_update(self):
         director_d = {
             "id": 3,
             "name": "Павел Недуров"
         }
-        self.director_service.update(director_d)
+        ret = self.director_service.update(director_d)
+
+        assert ret != None
 
     def test_partially_update(self):
         director_d = {
@@ -62,4 +67,5 @@ class TestDirectorService:
             "name": "Какоето Чудо"
         }
 
-        self.director_service.update(director_d)
+        ret = self.director_service.update(director_d)
+        assert ret != None

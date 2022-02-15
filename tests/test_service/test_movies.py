@@ -47,14 +47,20 @@ class TestMovieService:
         assert movie.id != None
 
     def test_delete(self):
-        self.movie_service.delete(1)
+        ret = self.movie_service.delete(1)
+        assert ret == None
+
+
 
     def test_update(self):
         movie_d = {
             "id": 3,
             "title": "Неамерикнский пирог"
         }
-        self.movie_service.update(movie_d)
+        ret  = self.movie_service.update(movie_d)
+        assert ret != None
+
+
 
     def test_partially_update(self):
         movie_d = {
@@ -62,4 +68,6 @@ class TestMovieService:
             "title": "Неамерикнский пирог 2"
         }
 
-        self.movie_service.update(movie_d)
+        ret = self.movie_service.update(movie_d)
+
+        assert ret != None
